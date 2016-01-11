@@ -32,6 +32,26 @@ nav ul li a {
   text-decoration: none;
 }
 
+
+/******** BOARD ***********/
+
+.board-container {
+  width: 320px;
+  height: 320px;
+  margin: 0 auto;
+}
+
+.sq {
+  width: 100px;
+  height: 100px;
+  float: left;
+  text-align: center;
+  vertical-align: center;
+  border: 1px solid grey;
+  padding: 2px;
+}
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
