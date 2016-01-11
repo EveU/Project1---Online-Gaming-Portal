@@ -1,3 +1,37 @@
+nav {
+  background-color: teal;
+  height: 65px;
+  line-height: 65px;
+  width: 100%;
+}
+
+.go-left{
+  float: left;
+}
+
+.go-right {
+  float: right;
+}
+
+nav ul {
+  padding-left: 0px;
+  margin: 0;
+  list-style-type: none;
+  /*line-height: 65px;*/
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  font-size: 12px;
+  font-weight: 100;
+  text-decoration: none;
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

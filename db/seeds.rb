@@ -1,3 +1,9 @@
+User.delete_all
+
+User.create!(username: 'Arthur', email: 'arthur@admin.example', password: 'password')
+User.create!(username: 'Betty', email: 'betty@user.example', password: 'password')
+User.create!(username: 'Charles', email: 'charles@user.example', password: 'password')
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
