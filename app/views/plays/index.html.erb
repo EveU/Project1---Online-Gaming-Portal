@@ -4,11 +4,13 @@
 <thead>
   <th>Game</th>
   <th>User</th>
+  <th>Played</th>
 </thead>
 <% @plays.each do |play| %>
   <tr>
     <td><%= play.game_detail.name %></td>
-    <td><%=play.user_id%></td>
+    <td><%= play.user.username %></td>
+    <td><%= time_ago_in_words(play.created_at) %> ago</td>
   </tr>
 <% end %>
 </table>
