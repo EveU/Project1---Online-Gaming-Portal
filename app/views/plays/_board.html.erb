@@ -4,7 +4,7 @@
     <% if symbol == "X" || symbol == "O" %>
       <%= symbol %>
     <% else %>
-      <%= link_to 'pick me!', play_make_move_path(@play, { board_index: index }) %>
+      <%= link_to 'pick me!', play_make_move_path(@play, { board_index: index }) unless @play.game_over? %>
     <% end %>
   </div>
 <% end %>

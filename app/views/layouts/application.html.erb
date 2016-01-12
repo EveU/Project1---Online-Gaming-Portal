@@ -14,6 +14,9 @@
   <div class="go-left">
     <%= link_to 'Home', root_path %>
     <%= link_to 'Games', game_details_path %>
+    <% if current_user %>
+      <%#= link_to 'My Play History', ??? %>
+    <% end %>
   </div>
   <div class="go-right">
     <% if current_user %>

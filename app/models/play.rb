@@ -2,6 +2,7 @@ class Play < ActiveRecord::Base
   belongs_to :game_detail, :class_name => "GameDetail",
       :foreign_key => "game_id"
   belongs_to :user
+  belongs_to :opponent, :class_name => "User", :foreign_key => "opponent_id"
   has_many :moves
   
   WINNING_LINES = [ [0,1,2],[0,3,6],[0,4,8],[1,4,7],[2,4,6],[2,5,8],[3,4,5],[6,7,8] ]
@@ -41,6 +42,10 @@ class Play < ActiveRecord::Base
 
   def board_full?
     display_board.all?
+  end
+
+  def game_over?
+    board_full? || has_won?("X") || has_won?("O")
   end
 
 end

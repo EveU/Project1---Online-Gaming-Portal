@@ -62,6 +62,20 @@ nav ul li a {
   padding: 2px;
 }
 
+.display-turn {
+  text-align: center;
+  font-size: 20px;
+}
+
+/***** PLAYERS *****/
+
+.player {
+  font-size: 24px;
+  text-align: center;
+  vertical-align: center;
+  padding: 50px;
+}
+
 /***** GAMES INDEX *****/
 .index-view {
   display: inline-block;
@@ -74,6 +88,7 @@ nav ul li a {
   width: 200px;
   height: 200px;
 }
+
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

@@ -10,11 +10,13 @@ class PlaysController < ApplicationController
     game = (params[:format])
     @play = Play.new(game_id: game)
     @games = GameDetail.all
+    @users = User.all.reject {|user| user == current_user}
   end
 
   def create
     game_id = params[:play][:game_id]
-    play = Play.create(user_id: current_user.id, game_id: game_id)
+    opponent_id = params[:play][:opponent_id]
+    play = Play.create(user_id: current_user.id, game_id: game_id, opponent_id: opponent_id)
     redirect_to play_path(play)
   end
 

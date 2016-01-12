@@ -1,3 +1,21 @@
+<div class="player go-left">
+  <p><%= @play.user.username %></p>
+  <p>( X )</p>
+</div>
+<div class="player go-right">
+  <% if @play.opponent %>
+    <p><%= @play.opponent.username %></p>
+  <% else %>
+    <p>Player 2</p>
+  <% end %>
+  <p>( O )</p>
+</div>
+
+
 <%= render 'board' %>
 
-<p><%= "#{@symbol} to play..." %></p>
+<% if @play.game_over? %>
+  <p class="display-turn">Game finished</p>
+<% else %>
+  <p class="display-turn"><%= "#{@symbol} to play..." %></p>
+<% end %>
