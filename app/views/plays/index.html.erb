@@ -1,1 +1,5 @@
-<%= link_to 'Start New Game', new_play_path %>
+<p><%= link_to 'Start New Game', new_play_path %></p>
+
+<% @plays.each do |play| %>
+  <p><%= "Game #{play.id}" %></p>
+<% end %>
