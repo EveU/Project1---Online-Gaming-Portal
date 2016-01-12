@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
-  resources :games
+  resources :games do
+    get :make_move
+  end
 
   root to: 'home#index'
   

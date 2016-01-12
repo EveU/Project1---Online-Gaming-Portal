@@ -1,17 +1,15 @@
-<% board = "0,1,0,0,2,0,0,0,0" %>
-<% board = board.split(',') %>
 <% p1_symbol = 'X' %>
 <% p2_symbol = 'O' %>
 
 <div class="board-container">
-<% board.each do |sq| %>
+<% @board.each_with_index do |sq, index| %>
   <div class="sq">
     <% if sq.to_i == 1 %>
       <%= p1_symbol %>
     <% elsif sq.to_i == 2 %>
       <%= p2_symbol %>
     <% else %>
-      <%= "-" %>
+      <%= link_to 'here', game_make_move_path(@game, { move_index: index }) %>
     <% end %>
   </div>
 <% end %>

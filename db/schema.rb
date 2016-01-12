@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111174014) do
+ActiveRecord::Schema.define(version: 20160112100803) do
+
+  create_table "game_details", force: :cascade do |t|
+    t.string   "name"
+    t.text     "image"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "plays", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ttt_plays", force: :cascade do |t|
+    t.integer  "p1"
+    t.integer  "p2"
+    t.integer  "turn"
+    t.string   "board"
+    t.string   "result"
+    t.string   "winner"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
