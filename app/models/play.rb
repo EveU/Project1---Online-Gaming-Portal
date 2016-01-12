@@ -1,4 +1,6 @@
 class Play < ActiveRecord::Base
+  belongs_to :game_detail, :class_name => "GameDetail",
+      :foreign_key => "game_id"
   has_many :moves
   
   WINNING_LINES = [ [0,1,2],[0,3,6],[0,4,8],[1,4,7],[2,4,6],[2,5,8],[3,4,5],[6,7,8] ]

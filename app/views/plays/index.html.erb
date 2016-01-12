@@ -1,5 +1,14 @@
 <p><%= link_to 'Start New Game', new_play_path %></p>
 
+<table>
+<thead>
+  <th>Game</th>
+  <th>User</th>
+</thead>
 <% @plays.each do |play| %>
-  <p><%= "Game #{play.id}" %></p>
+  <tr>
+    <td><%= play.game_detail.name %></td>
+    <td><%=play.user_id%></td>
+  </tr>
 <% end %>
+</table>
