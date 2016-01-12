@@ -1,0 +1,10 @@
+<h3>Game over</h3>
+<% if @result == "win" %>
+  <p><%= "#{@symbol} wins!" %></p>
+<% else %>
+  <p>It's a draw - everybody wins!</p>
+<% end %>
+
+<%= render 'board' %>
+
+<%= link_to 'Play again?', new_play_path %>

@@ -20,32 +20,24 @@ class Play < ActiveRecord::Base
     board
   end
 
-  def check_for_win
-    status = "in progress"
-    if has_won?(current_piece)
-      "won"
-    elsif board_full?
-      "draw"
-    else
-    end
-    status
-  end
-
   def has_won?(symbol)
-    load_board
-    WINNING_LINES.each do |wl|
-      wl.all? { || }
+    board = display_board
+    indices = []
+    win = false
+    board.each_with_index do |sq, index|
+      indices << index if sq == symbol
     end
-
-    # def check_lines
-    #   if WINS.any? { |line| line.all? { |square| @squares[square] == @player } }
-    #     @win = @player
-    #   end
-    # end
+    WINNING_LINES.each do |wl|
+      if indices & wl == wl
+        win = true
+        return true
+      end
+    end
+    win
   end
 
-  def board_full?(symbol)
-    load_board.all?
+  def board_full?
+    display_board.all?
   end
 
 end

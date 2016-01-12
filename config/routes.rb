@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :plays do
     get :make_move
+    get :game_over
   end
 
   root to: 'home#index'
