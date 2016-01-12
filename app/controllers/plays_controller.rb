@@ -5,11 +5,15 @@ class PlaysController < ApplicationController
   end
 
   def new
-    @play = Play.new
+    game = (params[:format])
+    @play = Play.new(game_id: game)
+    @games = GameDetail.all
   end
 
   def create
-
+    game_id = params[:play][:game_id]
+    play = Play.create(user_id: current_user.id, game_id: game_id)
+    redirect_to play_path(play)
   end
 
   def show

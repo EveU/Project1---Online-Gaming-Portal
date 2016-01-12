@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
+  resources :game_details
+
   resources :plays do
     get :make_move
     get :game_over

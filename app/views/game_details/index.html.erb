@@ -1,0 +1,8 @@
+<% @games.each do |game| %>
+  <%= game.name %> |
+  <%= link_to 'View details', game_detail_path(game) %> |
+  <%= link_to 'Start new game', new_play_path(game) %>
+  <br>
+<% end %>
+
+
