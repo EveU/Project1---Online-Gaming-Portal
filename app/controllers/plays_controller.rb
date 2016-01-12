@@ -5,12 +5,14 @@ class PlaysController < ApplicationController
 
   def show
     @play = Play.find(params[:id])
-    @board = [0,0,1,2,0,0,0,0,0]
-    @turn = 1
+    @board = @play.display_board
   end
 
   def make_move
-    raise
+    # raise
+    play = Play.find(params[:play_id])
+    symbol = play.next_piece
+    play.moves.create(symbol: symbol, board_index: params[:board_index])
     redirect_to play_path(params[:play_id])
   end
 

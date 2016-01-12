@@ -2,14 +2,12 @@
 <% p2_symbol = 'O' %>
 
 <div class="board-container">
-<% @board.each_with_index do |sq, index| %>
+<% @board.each_with_index do |symbol, index| %>
   <div class="sq">
-    <% if sq.to_i == 1 %>
-      <%= p1_symbol %>
-    <% elsif sq.to_i == 2 %>
-      <%= p2_symbol %>
+    <% if symbol == "X" || symbol == "O" %>
+      <%= symbol %>
     <% else %>
-      <%= link_to 'here', play_make_move_path(@play, { move_index: index }) %>
+      <%= link_to 'here', play_make_move_path(@play, { board_index: index }) %>
     <% end %>
   </div>
 <% end %>

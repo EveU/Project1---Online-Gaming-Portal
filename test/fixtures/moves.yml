@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  play_id: 1
+  symbol: MyString
+  board_index: 1
+
+two:
+  play_id: 1
+  symbol: MyString
+  board_index: 1
