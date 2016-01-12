@@ -51,6 +51,18 @@ nav ul li a {
   padding: 2px;
 }
 
+/***** GAMES INDEX *****/
+.index-view {
+  display: inline-block;
+  border: 1px solid teal;
+  margin: 10px;
+  text-align: center;
+}
+
+.index-view img {
+  width: 200px;
+  height: 200px;
+}
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
