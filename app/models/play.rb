@@ -16,6 +16,15 @@ class Play < ActiveRecord::Base
     end
   end
 
+  def current_player
+    if self.moves.count.even?
+      player = self.user
+    else
+      player = self.opponent
+    end
+    player
+  end
+
   def display_board
     board = [nil,nil,nil,nil,nil,nil,nil,nil,nil]
     self.moves.each do |move|

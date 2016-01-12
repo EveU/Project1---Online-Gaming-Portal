@@ -16,6 +16,8 @@
 
 <% if @play.game_over? %>
   <p class="display-turn">Game finished</p>
+<% elsif @play.current_player == current_user %>
+  <p class="display-turn"><%= "#{@play.current_player.username}, it's your turn!" %></p>
 <% else %>
-  <p class="display-turn"><%= "#{@symbol} to play..." %></p>
+  <p class="display-turn"><%= "Waiting for #{@play.current_player.username} to play..." %></p>
 <% end %>

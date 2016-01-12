@@ -89,6 +89,18 @@ nav ul li a {
   height: 200px;
 }
 
+.game-heading {
+  display: inline-block;
+  width: 100%;
+  vertical-align: bottom;
+}
+
+.game-heading h2, .game-heading p {
+  float: left;
+  padding: 10px;
+}
+
+
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
