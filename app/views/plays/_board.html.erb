@@ -9,7 +9,7 @@
     <% elsif sq.to_i == 2 %>
       <%= p2_symbol %>
     <% else %>
-      <%= link_to 'here', game_make_move_path(@game, { move_index: index }) %>
+      <%= link_to 'here', play_make_move_path(@play, { move_index: index }) %>
     <% end %>
   </div>
 <% end %>
