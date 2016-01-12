@@ -1,28 +1,14 @@
-<p><%= link_to 'Start New Game', new_play_path %></p>
 
-<table>
-<thead>
-  <th>Game</th>
-  <th>User</th>
-  <th>Opponent</th>
-  <th>Started</th>
-  <th>Status</th>
-  <!-- <th>Result</th> -->
-  <th>View Board</th>
-</thead>
-<% @plays.each do |play| %>
-  <tr>
-    <td><%= play.game_detail.name %></td>
-    <td><%= play.user.username %></td>
-    <td><%= play.opponent.username if play.opponent %></td>
-    <td><%= time_ago_in_words(play.created_at) %> ago</td>
-    <% if play.game_over? %>
-      <td>Finished</td>
-      <td><%= link_to 'view', play_path(play) %></td>
-    <% else %>
-      <td>In progress</td>
-      <td><%= link_to 'continue', play_path(play) %></td>
-    <% end %>
-    <!-- <td>(display result)</td> -->
+<% if params[:user_id] %>
+  <% @plays = current_user.plays %>
+  <h2>My Recent Games</h2>
+  <% if @plays.empty? %>
+    <p>Looks like you've not played any games yet. Click the link below to get started!</p>
+  <% end %>
+<% else %>
+  <% @plays = Play.all %>
+  <h2>Recently Played</h2>
 <% end %>
-</table>
+
+<p><%= link_to 'Start New Game', new_play_path %></p>
+<%= render 'plays_table' %>

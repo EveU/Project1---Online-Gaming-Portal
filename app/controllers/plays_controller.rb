@@ -3,7 +3,6 @@ class PlaysController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
-    @plays = Play.all
   end
 
   def new
