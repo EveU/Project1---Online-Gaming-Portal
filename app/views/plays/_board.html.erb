@@ -1,11 +1,16 @@
 <div class="board-container">
+<% symbols = GameCounter.all %>
 <% @board.each_with_index do |symbol, index| %>
-  <div class="sq">
+    <div class="sq">
     <% if symbol == "X" || symbol == "O" %>
-      <%= symbol %>
+      <%= image_tag symbols.find_by_game_counter(symbol).game_counter_image %>
     <% else %>
-      <%= link_to 'pick me!', play_make_move_path(@play, { board_index: index }) unless @play.game_over? || @play.current_player != current_user %>
+      <%= link_to image_tag(symbols.find_by_game_counter(@symbol).game_counter_image), play_make_move_path(@play, { board_index: index }) unless @play.game_over? || @play.current_player != current_user %>
     <% end %>
-  </div>
+    </div>
 <% end %>
 </div>
+
+
+
+
