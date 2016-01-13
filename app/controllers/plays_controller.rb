@@ -16,7 +16,7 @@ class PlaysController < ApplicationController
   def create
     game_id = params[:play][:game_id].to_i
     opponent_id = params[:play][:opponent_id]
-    if game_id == 1
+    if GameDetail.find(game_id).availability == "available"
       play = Play.create(user_id: current_user.id, game_id: game_id, opponent_id: opponent_id)
       redirect_to play_path(play)
     else

@@ -8,7 +8,7 @@
   <br>
   <%= link_to game.name, game_detail_path(game) %>
   <br>
-  <% if game.name == 'Tic Tac Toe' %>
+  <% if game.availability == "available" %>
     <p><%= link_to 'New game', new_play_path %></p>
   <% else %>
     <p>Coming soon...</p>
