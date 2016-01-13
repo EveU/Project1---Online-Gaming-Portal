@@ -1,9 +1,22 @@
 <h3>Game over</h3>
-<% if @result == "win" %>
-  <p><%= "#{@symbol} wins!" %></p>
-<% else %>
+<% if @play.winner_id == 0 %>
   <p>It's a draw - everybody wins!</p>
+<% else %>
+  <p><%= User.find(@play.winner_id).username %> won!</p>
 <% end %>
+
+<div class="player go-left">
+  <p><%= @play.user.username %></p>
+  <p>( X )</p>
+</div>
+<div class="player go-right">
+  <% if @play.opponent %>
+    <p><%= @play.opponent.username %></p>
+  <% else %>
+    <p>Player 2</p>
+  <% end %>
+  <p>( O )</p>
+</div>
 
 <%= render 'board' %>
 

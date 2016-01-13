@@ -29,6 +29,7 @@ class PlaysController < ApplicationController
     @play = Play.find(params[:id])
     @board = @play.display_board
     @symbol = @play.current_piece
+    redirect_to play_game_over_path(@play) if @play.game_over?
   end
 
   def game_over
