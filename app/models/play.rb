@@ -57,4 +57,13 @@ class Play < ActiveRecord::Base
     board_full? || has_won?("X") || has_won?("O")
   end
 
+  def computer_move
+    board = display_board
+    board.each_with_index do |sq, index|
+      if sq == nil
+        return index
+      end
+    end
+  end
+
 end

@@ -26,10 +26,15 @@ class PlaysController < ApplicationController
   end
 
   def show
+    # raise
     @play = Play.find(params[:id])
     @board = @play.display_board
     @symbol = @play.current_piece
-    redirect_to play_game_over_path(@play) if @play.game_over?
+    if @symbol == "O" && @play.opponent.username == "Computer"
+      redirect_to play_make_move_path(@play) 
+    elsif @play.game_over?
+      redirect_to play_game_over_path(@play)
+    end
   end
 
   def game_over
@@ -40,10 +45,14 @@ class PlaysController < ApplicationController
   end
 
   def make_move
-    # raise
     play = Play.find(params[:play_id])
     symbol = play.current_piece
-    play.moves.create(symbol: symbol, board_index: params[:board_index])
+    if symbol == "O" && play.opponent.username.include?("Computer")
+      board_index = play.computer_move
+      play.moves.create(symbol: symbol, board_index: board_index)
+    else
+      play.moves.create(symbol: symbol, board_index: params[:board_index])
+    end
     if play.has_won?(symbol)
       play.update(winner_id: current_user.id)
       redirect_to play_game_over_path(play, { play_id: play.id, result: "win", symbol: symbol })

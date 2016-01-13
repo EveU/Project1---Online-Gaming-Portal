@@ -1,0 +1,35 @@
+<table>
+<thead>
+  <th>Game</th>
+  <th>User</th>
+  <th>Opponent</th>
+  <th>Started</th>
+  <th>Result</th>
+  <th>View Board</th>
+</thead>
+
+
+<% @plays.each do |play| %>
+  <tr>
+    <td><%= play.game_detail.name %></td>
+    <td><%= play.user.username %></td>
+    <td><%= play.opponent.username if play.opponent %></td>
+    <td><%= time_ago_in_words(play.created_at) %> ago</td>
+    <% if play.game_over? %>
+      <% if play.winner_id == 0 %>
+        <td class="result result-drawn">Draw</td>
+      <% else %>
+        <td class="result result-won">Won by <%= User.find(play.winner_id).username %></td>
+        <% end %>
+      <td><%= link_to 'view', play_path(play) %></td>
+    <% else %>
+      <td class="result result-ongoing">-in progress-</td>
+      <% if current_user == play.user || current_user == play.opponent %>
+        <td><%= link_to 'continue', play_path(play) %></td>
+      <% else %>
+        <td><%= link_to 'view', play_path(play) %></td>
+      <% end %>
+    <% end %>
+  </tr>
+<% end %>
+</table>

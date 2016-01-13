@@ -1,5 +1,6 @@
 User.delete_all
 GameDetail.delete_all
+Play.delete_all
 
 User.create!(username: 'Arthur', email: 'arthur@admin.example', password: 'password')
 User.create!(username: 'Betty', email: 'betty@user.example', password: 'password')
