@@ -5,16 +5,6 @@
   <p>It's a draw - everybody wins!</p>
 <% end %>
 
-<div class="board-container">
-<% @board.each_with_index do |symbol, index| %>
-  <div class="sq">
-    <% if symbol == "X" || symbol == "O" %>
-      <%= symbol %>
-    <% else %>
-      <%= "" %>
-    <% end %>
-  </div>
-<% end %>
-</div>
+<%= render 'board' %>
 
 <%= link_to 'Play again?', new_play_path %>
