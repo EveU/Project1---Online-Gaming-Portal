@@ -1,6 +1,6 @@
 <div class="game-heading">
   <h2><%= @game.name %></h2>
-  <p><%= link_to "Start new '#{@game.name}' game", new_play_path(@game) if @game.id == 1 %></p>
+  <p><%= link_to "Start new '#{@game.name}' game", new_play_path if @game.id == 1 %></p>
   <p><%= "Coming soon!" if @game.id != 1 %></p>
 </div>
 <%= image_tag @game.image %>
@@ -8,7 +8,7 @@
 <p><%= @game.description %></p>
 
 <% if @game.id == 1 %>
-  <%= link_to "Start new '#{@game.name}' game", new_play_path(@game) %>
+  <%= link_to "Start new '#{@game.name}' game", new_play_path %>
 <% else %>
   <h4>Coming soon!</h4>
 <% end %>

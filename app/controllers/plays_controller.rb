@@ -6,14 +6,15 @@ class PlaysController < ApplicationController
   end
 
   def new
-    game = (params[:format])
-    @play = Play.new(game_id: game)
+    # game = (params[:format])
+    # @play = Play.new(game_id: game)
+    @play = Play.new
     @games = GameDetail.all
     @users = User.all.reject {|user| user == current_user}
   end
 
   def create
-    game_id = params[:play][:game_id]
+    game_id = params[:play][:game_id].to_i
     opponent_id = params[:play][:opponent_id]
     if game_id == 1
       play = Play.create(user_id: current_user.id, game_id: game_id, opponent_id: opponent_id)
