@@ -125,6 +125,22 @@ nav ul li a {
   font-style: italic;
 }
 
+.result {
+  text-align: center;
+}
+
+.result-won {
+  color: #026CE6;
+}
+
+.result-drawn {
+  color: #FCA138;
+}
+
+.result-ongoing {
+  color: #51D126;
+  font-style: italic;
+}
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

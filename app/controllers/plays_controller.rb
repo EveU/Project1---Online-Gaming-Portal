@@ -44,8 +44,10 @@ class PlaysController < ApplicationController
     symbol = play.current_piece
     play.moves.create(symbol: symbol, board_index: params[:board_index])
     if play.has_won?(symbol)
+      play.update(winner_id: current_user.id)
       redirect_to play_game_over_path(play, { play_id: play.id, result: "win", symbol: symbol })
     elsif play.board_full?
+      play.update(winner_id: 0)
       redirect_to play_game_over_path(play, { play_id: play.id, result: "draw" })
     else
       redirect_to play_path(params[:play_id])
