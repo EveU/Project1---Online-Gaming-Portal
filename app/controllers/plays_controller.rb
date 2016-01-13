@@ -15,8 +15,13 @@ class PlaysController < ApplicationController
   def create
     game_id = params[:play][:game_id]
     opponent_id = params[:play][:opponent_id]
-    play = Play.create(user_id: current_user.id, game_id: game_id, opponent_id: opponent_id)
-    redirect_to play_path(play)
+    if game_id == 1
+      play = Play.create(user_id: current_user.id, game_id: game_id, opponent_id: opponent_id)
+      redirect_to play_path(play)
+    else
+      message = "Sorry, that game is not available."
+      redirect_to game_details_path( { message: message } )
+    end
   end
 
   def show

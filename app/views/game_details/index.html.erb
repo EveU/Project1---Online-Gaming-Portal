@@ -1,3 +1,8 @@
+
+<% if params[:message] %>
+  <h4 class="error"><%= params[:message] %></h4>
+<% end %>
+
 <% @games.each do |game| %>
 <div class="index-view">
   <%= image_tag game.image %>

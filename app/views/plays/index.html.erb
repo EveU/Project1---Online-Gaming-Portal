@@ -1,12 +1,13 @@
-
 <% if params[:user_id] %>
-  <% @plays = current_user.plays %>
+  <% current_user = params[:user_id] %>
+  <% @plays = Play.where("user_id = #{current_user} OR opponent_id = #{current_user}") %>
+  <% @plays = @plays.order("created_at desc") %>
   <h2>My Recent Games</h2>
   <% if @plays.empty? %>
     <p>Looks like you've not played any games yet. Click the link below to get started!</p>
   <% end %>
 <% else %>
-  <% @plays = Play.all %>
+  <% @plays = Play.all.order("created_at desc") %>
   <h2>Recently Played</h2>
 <% end %>
 
